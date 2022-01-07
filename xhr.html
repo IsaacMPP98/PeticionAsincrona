@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+<h2>Usando Fetch</h2>
+<div id="demo">
+  <div id="elem"></div>
+  <div id="Bandera"></div>
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+<button type="button" onclick="loadXMLDoc2()">Bandera</button>
+</div>
+
+<script>
+
+function loadXMLDoc() {
+  const url = 'https://restcountries.com/v2/alpha/mex'
+
+fetch(url)
+.then(response => response.json())
+.then(data =>{
+    let element = document.getElementById('elem')
+    element.innerHTML= ` <p>${data.name}</p>`;
+})
+}
+
+function loadXMLDoc2() {
+  const url = 'https://restcountries.com/v2/alpha/mex'
+
+fetch(url)
+.then(response => response.json())
+.then(data =>{
+    let element = document.getElementById('Bandera')
+    element.innerHTML= `<img src = '${data.flag}'/>`;
+})
+}
+</script>
+
+</body>
+</html>
